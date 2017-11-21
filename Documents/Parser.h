@@ -8,12 +8,15 @@
 * specified format
 **********************************************************/
 #include <string>
+#include <fstream>
+#include "Data.h"
 using namespace std;
 
 class Parser
 {
 	/*ATTRIBUTES*/
 	private:
+	string output;
 	
 	/*METHODS*/
 	public:
@@ -21,6 +24,14 @@ class Parser
 	Parser();
 
 	// GENERAL METHODS
+	/*************************************************
+	* readFile
+	* ------------------------------------------------
+	* This method accepts a file name as a string. 
+	* Then it will open the file, read in the data 
+	* line by line, and will add the data to a Data 
+	* object for each line and add the information a 
+	* string object which will later be outputed
+	**************************************************/
 	void readFile(string filename);
-	void readFile(/*File Object*/);
 };
