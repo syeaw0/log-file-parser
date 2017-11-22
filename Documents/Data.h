@@ -35,4 +35,4 @@ class Data
 	string _data;
 	int _size;
 	int _relTime;
-}
+};
