@@ -17,13 +17,13 @@
 
 Data::Data()
 {
-
+	_wordCount = 0;
 }
 
 string Data::getAddress()
 {
 	return _address;
-}
+
 
 string Data::getData()
 {
@@ -40,14 +40,26 @@ int Data::RelTime()
 	return _relTime;
 }
 
-void Data::setAddress(string address)
+void Data::setNumOfWords(string wordsInHex)
 {
-	_address = address;
+	// TODO!
 }
 
-void Data::setData(string data)
+void Data::setAddress(string address)
 {
-	_data = data;
+	if(address == "40000810")
+	{
+		_addressType = "StoD";
+	}
+	else if(address == "40000C18")
+	{
+		_addressType = "DtoS";
+	}
+	else
+	{
+		_addressType = "Unknown";
+	}
+	_address = address;
 }
 
 void Data::setSize(int size)
