@@ -7,10 +7,13 @@ int main()
 {
   Hex obj;
 
-#  obj.getBinary();
-
+  Parser parser;
+  Data Info;
+  parser.readFile("test_data.txt", Info);
 
   obj.toBinary();
+  system("pause");
+  return 0;
 
 }
 
