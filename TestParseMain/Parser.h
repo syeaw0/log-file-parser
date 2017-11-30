@@ -65,5 +65,5 @@ public:
 	string getAddress();
 
 	//pring method
-	void printDataInfo(Data Object);
+	void printDataInfo(Data Object, int count);
 };

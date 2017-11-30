@@ -81,3 +81,8 @@ void Data::setRelTime(int time)
 {
 	_relTime = time;
 }
+
+void Data::hexToBin(string hex)
+{
+	//HECTOR CODE HERE
+}

@@ -20,10 +20,12 @@ Parser::Parser(Data Object)
 **************************************************/
 void Parser::readFile(string filename, Data Object)
 {
+	int count = 0;
 	ifstream infile(filename.c_str());
 	string line;
 	while(getline(infile, line))
 	{
+		count += 1;
 		istringstream iss(line);
 		string garbage; //garbage
 		string time;
@@ -43,7 +45,7 @@ void Parser::readFile(string filename, Data Object)
 			Object.setAddressType(address);
 			Object.setData(data);
 			Object.setCycle(cycle);
-			printDataInfo(Object);
+			printDataInfo(Object, count);
 		}
 		//cout << "Time: " << time << " Address: " << address << " Data: " << data << " " << cycle << endl;
 									 // process pair (a,b)
@@ -142,8 +144,8 @@ vector<string> Parser::parseString(string line)
 	return words;
 }
 
-void Parser::printDataInfo(Data Object)
+void Parser::printDataInfo(Data Object, int count)
 {
-	cout << "Time:  " << Object.getRelTime() << " Address Type:  " << Object.getAddressType() << " Address:  " << Object.getAddress() << " Data:  " << Object.getData() << "  " << Object.getCycle() << endl;
+	cout << count << " Time:  " << Object.getRelTime() << " Address Type:  " << Object.getAddressType() << " Address:  " << Object.getAddress() << " Data:  " << Object.getData() << "  " << Object.getCycle() << endl;
 	cout << endl;
 }

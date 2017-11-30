@@ -24,7 +24,7 @@ public:
 	string getData(); //get data
 	string getCycle();  // get Size
 	int getRelTime();  // get Time of previous command
-
+	void hexToBin(string hex); //converts hex to binary
 					//Set Functions
 	void setNumOfWords(string wordsInHex); // set  the number of words
 	void setAddress(string address); //function to set address
