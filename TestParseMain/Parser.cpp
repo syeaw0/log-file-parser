@@ -1,4 +1,4 @@
-#include "Parcer.h"
+#include "Parser.h"
 using namespace std;
 // Default Constructor
 Parser::Parser()
@@ -20,6 +20,36 @@ Parser::Parser(Data Object)
 **************************************************/
 void Parser::readFile(string filename, Data Object)
 {
+	ifstream infile(filename.c_str());
+	string line;
+	while(getline(infile, line))
+	{
+		istringstream iss(line);
+		string garbage; //garbage
+		string time;
+		int timeNum;
+		string address;
+		string data;
+		string cycle; //read write
+		if (!(iss >> garbage >> garbage >> time >> garbage >> garbage >> garbage >> address >> data >> garbage >> cycle))
+		{
+			break; 
+		} // error
+		else if(address == "40000810" || address == "40000C18")
+		{
+			timeNum = stoi(time);
+			Object.setRelTime(timeNum);
+			Object.setAddress(address);
+			Object.setAddressType(address);
+			Object.setData(data);
+			Object.setCycle(cycle);
+			printDataInfo(Object);
+		}
+		//cout << "Time: " << time << " Address: " << address << " Data: " << data << " " << cycle << endl;
+									 // process pair (a,b)
+	}
+	infile.close();
+	/*
 	// VARIABLE DECLARATIONS
 	bool collectData = false; // This tracks whether or not data is being collected
 							  // Open the file
@@ -29,25 +59,28 @@ void Parser::readFile(string filename, Data Object)
 	//stod = false;
 	//dtos = false;
 	string line;
-	getline(input, line);
-	while (!input.eof())
+	//getline(input, line);
+	for (int i = 0; i < 1000; i++) //while(!input.eof()) ---- to prevent crash during test for(int i = 0; i < 1000; i++)
 	{
 		getline(input, line);
 		// If the memory address is a command, begin
 		// collecting relevant data
 		string address = parseAddress(line);
+		
 		if (address == "40000810" || address == "40000C18")
 		{
 			collectData = true;
+			string data = parseData(line);
 			Object.setAddress(address);
 			Object.setAddressType(address);
-			//cout << Object.getAddress() << endl;
-			//cout << Object.getAddressType() << endl;
+			Object.setData(data);
+			printDataInfo(Object);
 		}
 	}
 
 	// Close the file
 	input.close();
+	*/
 }
 
 string Parser::getAddress()
@@ -63,9 +96,14 @@ string Parser::getAddress()
 **************************************************/
 string Parser::parseAddress(string line)
 {
-	vector<string> data = parseString(line);
-
+	vector<string> data = parseString(line); 
 	return data.at(6);
+}
+
+string Parser::parseData(string line)
+{
+	vector<string> data = parseString(line);
+	return data.at(7);
 }
 
 /*************************************************
@@ -102,4 +140,10 @@ vector<string> Parser::parseString(string line)
 	}
 
 	return words;
+}
+
+void Parser::printDataInfo(Data Object)
+{
+	cout << "Time:  " << Object.getRelTime() << " Address Type:  " << Object.getAddressType() << " Address:  " << Object.getAddress() << " Data:  " << Object.getData() << "  " << Object.getCycle() << endl;
+	cout << endl;
 }

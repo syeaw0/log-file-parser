@@ -112,12 +112,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Data.cpp" />
-    <ClCompile Include="Parcer.cpp" />
-    <ClCompile Include="ParcerMain.cpp" />
+    <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="ParserMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Data.h" />
-    <ClInclude Include="Parcer.h" />
+    <ClInclude Include="Parser.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

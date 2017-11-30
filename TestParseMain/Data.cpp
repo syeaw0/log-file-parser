@@ -26,17 +26,17 @@ string Data::getAddress()
 }
 
 
-/*string Data::getData()
+string Data::getData()
 {
 	return _data;
-}*/
-
-int Data::getSize()
-{
-	return _size;
 }
 
-int Data::RelTime()
+string Data::getCycle()
+{
+	return _cycle;
+}
+
+int Data::getRelTime()
 {
 	return _relTime;
 }
@@ -68,9 +68,13 @@ void Data::setAddressType(string address)
 	_address = address;
 }
 
-void Data::setSize(int size)
+void Data::setData(string data)
 {
-	_size = size;
+	_data = data;
+}
+void Data::setCycle(string cycle)
+{
+	_cycle = cycle;
 }
 
 void Data::setRelTime(int time)

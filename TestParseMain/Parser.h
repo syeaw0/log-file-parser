@@ -51,7 +51,8 @@ public:
 	* the log
 	**************************************************/
 	string parseAddress(string line);
-
+	string parseData(string line);
+	
 	/*************************************************
 	* parseString
 	* ------------------------------------------------
@@ -62,4 +63,7 @@ public:
 
 	//get method for address
 	string getAddress();
+
+	//pring method
+	void printDataInfo(Data Object);
 };
