@@ -8,7 +8,6 @@ using namespace std;
 
 void Hex::HexToBin(string hex) {
 	{
-		vector<char> binnum;
 		char hexdec[100];
 		string h = hex;
 		strcpy_s(hexdec, h.c_str());
@@ -17,7 +16,7 @@ void Hex::HexToBin(string hex) {
 		i = word.begin();
 		while (i != word.end())
 		{
-			switch (word[i]) //error here
+			switch (*i) //error here
 			{
 			case '0': cout << "0000";
 				binum.push_back((0));
@@ -151,7 +150,7 @@ void Hex::HexToBin(string hex) {
 				binum.push_back(1);
 				binum.push_back(1);
 				break;
-			default: cout << "\nInvalid hexadecimal digit " << hexdec[i]; //error here
+			default: cout << "\nInvalid hexadecimal digit " << *i; //error here
 			}
 			i++;
 		}
