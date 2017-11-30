@@ -8,7 +8,14 @@
 * specified format
 **********************************************************/
 #include <string>
+#include <iostream>
+#include <iomanip>
 #include <fstream>
+#include <sstream>
+#include <istream>
+#include <iterator>
+#include <vector>
+#include <cctype>
 #include "Data.h"
 using namespace std;
 
@@ -34,4 +41,21 @@ class Parser
 	* string object which will later be outputed
 	**************************************************/
 	void readFile(string filename);
+
+	//private:
+	/*************************************************
+	* parseAddress
+	* ------------------------------------------------
+	* This method returns the address from a line of
+	* the log
+	**************************************************/
+	string parseAddress(string line);
+
+	/*************************************************
+	* parseString
+	* ------------------------------------------------
+	* This method accepts a string and parses it into
+	* words using whitespace as a delimiter
+	**************************************************/
+	vector<string> parseString(string line);
 };

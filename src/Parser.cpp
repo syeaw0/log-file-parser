@@ -17,17 +17,26 @@ Parser::Parser()
 **************************************************/
 void Parser::readFile(string filename)
 {
+	// VARIABLE DECLARATIONS
+	bool collectData = false; // This tracks whether or not data is being collected
 	// Open the file
-	ifstream input (filename.c_str());
+	ifstream input (filename.c_str());		
 
 	// Read file line by line
+	stod = false;
+	dtos = false;
 	string line;
 	getline(input, line);
 	while(!input.eof())
 	{
-		string line;
 		getline(input, line);
-		cout << line << endl;
+		// If the memory address is a command, begin
+		// collecting relevant data
+		string address = parseAddress(line);
+		if(address == "40000810" || address == "40000C18")
+		{
+			collectData = true;
+		}
 	}
 
 	// Close the file
