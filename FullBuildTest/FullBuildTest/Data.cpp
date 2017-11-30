@@ -233,7 +233,7 @@ void Data::hexToBin(string hex) //Converts the Data string into Binary
 		i++;
 	}
 	printBinary(binum);
-	//extractBits(0);
+	extractBits(10);
 	clearbin();
 }
 
@@ -247,18 +247,174 @@ void Data::printBinary(vector<char> binary) //print the binary vector
 	cout << endl;
 }
 
-void Data::extractBits(int wordCount)
+void Data::extractBits(int wordCount) //extracts certain bits depending on which word we are one
 {
 	string word;
 	switch (wordCount) 
 	{
 		case 0: 
 		{  
-			word = binum[1] + binum[2];
-			cout << word << '\n';
+			word = binum[1];
+			word += binum[2];
+			if (word == "00")
+			{
+				cout << "Rec_Ctrl = no recording" << endl;
+			}
+			else if (word == "10")
+			{
+				cout << "Rec_Ctrl = no processing" << endl;
+			}
+			else if (word == "11")
+			{
+				cout << "Rec_Ctrl = processing & recording" << endl;
+			}
 			break;
-		} // scope of 'x' ends here
-	default: std::cout << "default\n"; // no error
+		} 
+		case 1:
+		{
+			word = binum[0];
+			word += binum[1];
+			word += binum[2];
+			cout << word << endl;
+			if (word == "100")
+			{
+				cout << "Cmd_Type = Type A" << endl;
+			}
+			else if (word == "101")
+			{
+				cout << "Cmd_Type = Type B" << endl;
+			}
+			else if (word == "110")
+			{
+				cout << "Cmd_Type = Type C" << endl;
+			}
+			break;
+		}
+		case 4:
+		{
+			word = binum[15];
+			cout << word << endl;
+			if (word == "0")
+			{
+				cout << "Rec_Raw = disable" << endl;
+			}
+			else if (word == "1")
+			{
+				cout << "Rec_Raw = enable" << endl;
+			}
+			break;
+		}
+		case 5: //NEED CONVERTER FROM BINARY TO DEC
+		{
+			word = binum[9];
+			for (int i = 9; i <= 15; i++)
+			{
+				word += binum[i];
+			}
+			cout << "Cmd_ID = " << word << endl;
+			break;
+		}
+		case 10: //MAY NEED A CONVERTER FOR BINARY TO DEC
+		{
+			word = binum[0];
+			for (int i = 1; i <= 4; i++)
+			{
+				word += binum[i];
+			}
+			cout << "Num_Responses = " << word << endl;
+			break;
+		}
+		case 15:
+		{
+			word = binum[13];
+			cout << word << endl;
+			if (word == "0")
+			{
+				cout << "Reset_Enable = disable" << endl;
+			}
+			else if (word == "1")
+			{
+				cout << "Reset_Enable = enable" << endl;
+			}
+			break;
+		}
+		case 22:
+		{
+			word = binum[12];
+			cout << word << endl;
+			if (word == "0")
+			{
+				cout << "Direction = Right" << endl;
+			}
+			else if (word == "1")
+			{
+				cout << "Direction = Left" << endl;
+			}
+			break;
+		}
+		case 32: //NEED CONVERTER
+		{
+			word = binum[1];
+			for (int i = 2; i <= 15; i++)
+			{
+				word += binum[i];
+			}
+			cout << "Num_Samples = " << word << endl;
+			break;
+		}
+		case 37:
+		{
+			word = binum[0];
+			cout << word << endl;
+			if (word == "0")
+			{
+				cout << "Parity = even" << endl;
+			}
+			else if (word == "1")
+			{
+				cout << "Parity = odd" << endl;
+			}
+			break;
+		}
+		case 38:
+		{
+			word = binum[1];
+			cout << word << endl;
+			if (word == "0")
+			{
+				cout << "Test = disable" << endl;
+			}
+			else if (word == "1")
+			{
+				cout << "Test = enable" << endl;
+			}
+			break;
+		}
+		case 40:
+		{
+			word = binum[8];
+			cout << word << endl;
+			if (word == "0")
+			{
+				cout << "Ctrl_Enable = disable" << endl;
+			}
+			else if (word == "1")
+			{
+				cout << "Ctrl_Enable - enable" << endl;
+			}
+			break;
+		}
+		case 41: //NEED CONVERTER
+		{
+			word = binum[1];
+			for (int i = 2; i <= 7; i++)
+			{
+				word += binum[i];
+			}
+			cout << "Code = " << word << endl;
+			break;
+		}
+		default: std::cout << "default\n"; // no error
 		break;
 	}
 }
