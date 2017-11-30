@@ -7,144 +7,146 @@
 using namespace std;
 
 void Hex::HexToBin(string hex){
-	{
 	vector<char> binnum;
 	char hexdec[100];
 	string h = hex;
+	//int wordcount = 0;
 	strcpy(hexdec, h.c_str());
 	vector<char> word(hexdec, hexdec + sizeof hexdec / sizeof hexdec[0]);
+	//int n = word.size();
+	//wordcount += n;
 	i = word.begin();
 	while (i != word.end())
 		{
 		switch (word[i])
 		{
-		case '0': cout << "0000";
+		case '0': 
 			binum.push_back(0);
 			binum.push_back(0);
 			binum.push_back(0);
 			binum.push_back(0);
 			break;
-		case '1': cout << "0001";
+		case '1': 
 			binum.push_back(0);
 			binum.push_back(0);
 			binum.push_back(0);
 			binum.push_back(1);
 			break;
-		case '2': cout << "0010";
+		case '2': 
 			binum.push_back(0);
 			binum.push_back(0);
 			binum.push_back(1);
 			binum.push_back(0);
 			break;
-		case '3': cout << "0011";
+		case '3': 
 			binum.push_back(0);
 			binum.push_back(0);
 			binum.push_back(1);
 			binum.push_back(1);
 			break;
-		case '4': cout << "0100";
+		case '4': 
 			binum.push_back(0);
 			binum.push_back(1);
 			binum.push_back(0);
 			binum.push_back(0);
 			break;
-		case '5': cout << "0101";
+		case '5': 
 			binum.push_back(0);
 			binum.push_back(1);
 			binum.push_back(0);
 			binum.push_back(1);
 			break;
-		case '6': cout << "0110";
+		case '6': 
 			binum.push_back(0);
 			binum.push_back(1);
 			binum.push_back(1);
 			binum.push_back(0);
 			break;
-		case '7': cout << "0111";
+		case '7': 
 			binum.push_back(0);
 			binum.push_back(1);
 			binum.push_back(1);
 			binum.push_back(1);
 			break;
-		case '8': cout << "1000";
+		case '8': 
 			binum.push_back(1);
 			binum.push_back(0);
 			binum.push_back(0);
 			binum.push_back(0);
 			break;
-		case '9': cout << "1001";
+		case '9': 
 			binum.push_back(1);
 			binum.push_back(0);
 			binum.push_back(0);
 			binum.push_back(1);
 			break;
-		case 'A': cout << "1010";
+		case 'A': 
 			binum.push_back(1);
 			binum.push_back(0);
 			binum.push_back(1);
 			binum.push_back(0);
 			break;
-		case 'B': cout << "1011";
+		case 'B': 
 			binum.push_back(1);
 			binum.push_back(0);
 			binum.push_back(1);
 			binum.push_back(1);
 			break;
-		case 'C': cout << "1100";
+		case 'C': 
 			binum.push_back(1);
 			binum.push_back(1);
 			binum.push_back(0);
 			binum.push_back(0);
 			break;
-		case 'D': cout << "1101";
+		case 'D': 
 			binum.push_back(1);
 			binum.push_back(1);
 			binum.push_back(0);
 			binum.push_back(1);
 			break;
-		case 'E': cout << "1110";
+		case 'E': 
 			binum.push_back(1);
 			binum.push_back(1);
 			binum.push_back(1);
 			binum.push_back(0);
 			break;
-		case 'F': cout << "1111";
+		case 'F': 
 			binum.push_back(1);
 			binum.push_back(1);
 			binum.push_back(1);
 			binum.push_back(1);
 			break;
-		case 'a': cout << "1010";
+		case 'a': 
 			binum.push_back(1);
 			binum.push_back(0);
 			binum.push_back(1);
 			binum.push_back(0);
 			break;
-		case 'b': cout << "1011";
+		case 'b': 
 			binum.push_back(1);
 			binum.push_back(0);
 			binum.push_back(1);
 			binum.push_back(1);
 			break;
-		case 'c': cout << "1100";
+		case 'c': 
 			binum.push_back(1);
 			binum.push_back(1);
 			binum.push_back(0);
 			binum.push_back(0);
 			break;
-		case 'd': cout << "1101";
+		case 'd': 
 			binum.push_back(1);
 			binum.push_back(1);
 			binum.push_back(0);
 			binum.push_back(1);
 			break;
-		case 'e': cout << "1110";
+		case 'e': 
 			binum.push_back(1);
 			binum.push_back(1);
 			binum.push_back(1);
 			binum.push_back(0);
 			break;
-		case 'f': cout << "1111";
+		case 'f': 
 			binum.push_back(1);
 			binum.push_back(1);
 			binum.push_back(1);
@@ -152,8 +154,10 @@ void Hex::HexToBin(string hex){
 			break;
 		default: cout << "\nInvalid hexadecimal digit " << hexdec[i];
 		}
-		i++;
-	}
+			i++;
+		}
 }
-	return binum;
+void Hex::clearbin(){
+	binum.clear();
 }
+
