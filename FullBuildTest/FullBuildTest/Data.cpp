@@ -233,6 +233,7 @@ void Data::hexToBin(string hex) //Converts the Data string into Binary
 		i++;
 	}
 	printBinary(binum);
+	cout << binToDecimal(binum) << endl;
 	extractBits(5);
 	clearbin();
 }
@@ -419,8 +420,32 @@ void Data::extractBits(int wordCount) //extracts certain bits depending on which
 	}
 }
 
+int Data::binToDecimal(vector<char> binary) //converts binary to decimal returns int
+{
+	string binString;
+	binString = binary[0];
+	for (int i = 1; i != binary.size(); ++i)
+	{
+		//cout << binary[x] << "- subscripting" << endl;
+		binString += binary[i];
+	}
+	int bin, dec = 0, rem, base = 1;
+	int value = atoi(binString.c_str());
+	bin = value;
+	while (value > 0)
+	{
+		rem = value % 10;
+		dec = dec + rem * base;
+		base = base * 2;
+		value = value / 10;
+	}
+	
+	//cout << "The decimal equivalent of " << bin << " : " << dec << endl;
+	return dec;
+}
 int Data::binToDecimal(string word) //converts binary to decimal returns int
 {
+
 	int bin, dec = 0, rem, base = 1;
 	int value = atoi(word.c_str());
 	bin = value;
@@ -431,6 +456,7 @@ int Data::binToDecimal(string word) //converts binary to decimal returns int
 		base = base * 2;
 		value = value / 10;
 	}
+
 	//cout << "The decimal equivalent of " << bin << " : " << dec << endl;
 	return dec;
 }

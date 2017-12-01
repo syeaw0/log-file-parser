@@ -40,7 +40,8 @@ public:
 	void printBinary(vector<char> binary); //test prints the binary conversion of the data
 	void clearbin(); //clears the vector bin
 	void extractBits(int wordCount); //extract bits of the vector binum
-	int binToDecimal(string word); //converts binary to decimal
+	int binToDecimal(vector<char> binary);
+	int binToDecimal(string word);//converts binary to decimal
 							   //Attributes
 private:
 	int _wordCount;
