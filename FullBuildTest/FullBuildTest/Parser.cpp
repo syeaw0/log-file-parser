@@ -39,7 +39,8 @@ void Parser::readFile(string filename, Data Object)
 		} // error
 		else if (address == "40000810" || address == "40000C18" || address == "40000818" || address == "40000C14")
 		{
-			timeNum = stoi(time);
+			//timeNum = stoi(time);
+			istringstream(time) >> timeNum; //ADD TO MAIN FILE******************************************
 			Object.setRelTime(timeNum);
 			Object.setAddress(address);
 			Object.setAddressType(address);

@@ -233,7 +233,7 @@ void Data::hexToBin(string hex) //Converts the Data string into Binary
 		i++;
 	}
 	printBinary(binum);
-	extractBits(10);
+	extractBits(5);
 	clearbin();
 }
 
@@ -311,7 +311,7 @@ void Data::extractBits(int wordCount) //extracts certain bits depending on which
 			{
 				word += binum[i];
 			}
-			cout << "Cmd_ID = " << word << endl;
+			cout << "Cmd_ID = " << binToDecimal(word) << endl;
 			break;
 		}
 		case 10: //MAY NEED A CONVERTER FOR BINARY TO DEC
@@ -321,7 +321,7 @@ void Data::extractBits(int wordCount) //extracts certain bits depending on which
 			{
 				word += binum[i];
 			}
-			cout << "Num_Responses = " << word << endl;
+			cout << "Num_Responses = " << binToDecimal(word) << endl;
 			break;
 		}
 		case 15:
@@ -359,7 +359,7 @@ void Data::extractBits(int wordCount) //extracts certain bits depending on which
 			{
 				word += binum[i];
 			}
-			cout << "Num_Samples = " << word << endl;
+			cout << "Num_Samples = " << binToDecimal(word) << endl;
 			break;
 		}
 		case 37:
@@ -411,13 +411,30 @@ void Data::extractBits(int wordCount) //extracts certain bits depending on which
 			{
 				word += binum[i];
 			}
-			cout << "Code = " << word << endl;
+			cout << "Code = " << binToDecimal(word) << endl;
 			break;
 		}
 		default: std::cout << "default\n"; // no error
 		break;
 	}
 }
+
+int Data::binToDecimal(string word) //converts binary to decimal returns int
+{
+	int bin, dec = 0, rem, base = 1;
+	int value = atoi(word.c_str());
+	bin = value;
+	while (value > 0)
+	{
+		rem = value % 10;
+		dec = dec + rem * base;
+		base = base * 2;
+		value = value / 10;
+	}
+	//cout << "The decimal equivalent of " << bin << " : " << dec << endl;
+	return dec;
+}
+
 void Data::clearbin() 
 {
 	binum.clear();
