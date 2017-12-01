@@ -1,0 +1,14 @@
+ Sample  BgL        RelTime              AbsTime Transfer         AM/XAM          Address             Data   Size Cycle     Status  Iack Fail IRQ[7:1]*
+ -330002 3---        2.655us             -11.749s    Start       A32nMBLT         4062E690 FFFCFFF3FFF70007    D64    Wr       Data ----- ----   1111111
+ -330001 3---        157.5ns             -11.749s    Block       A32nMBLT         4062E698 FFF7000EFFFDFFFB    D64    Wr       Data ----- ----   1111111
+ -330000 3---        157.5ns             -11.749s    Block       A32nMBLT         4062E6A0 FFFCFFFCFFFD0005    D64    Wr       Data ----- ----   1111111
+ -329999 3---        150.0ns             -11.749s    Block       A32nMBLT         4062E6A8 0007000100120000    D64    Wr       Data ----- ----   1111111
+ -329998 3---        157.5ns             -11.749s    Block       A32nMBLT         4062E6B0 00070002FFF90004    D64    Wr       Data ----- ----   1111111
+ -329997 3---        157.5ns             -11.749s    Block       A32nMBLT         4062E6B8 FFFA0006FFFE0007    D64    Wr       Data ----- ----   1111111
+ -329996 3---        157.5ns             -11.749s    Block       A32nMBLT         4062E6C0 0007000800070007    D64    Wr       Data ----- ----   1111111
+ -329995 3---        330.0ns             -11.749s   Single          A32nD         4062E6C8         00020009    D32    Wr       Data ----- ----   1111111
+ -329994 3---       15.293us             -11.749s    Start       A32nMBLT         4062E6D8 0000000500000013    D64    Wr       Data ----- ----   1111111
+ -329993 3---        157.5ns             -11.749s    Block       A32nMBLT         4062E6E0 0007000A000B0004    D64    Wr       Data ----- ----   1111111
+ -329992 3---        157.5ns             -11.749s    Block       A32nMBLT         4062E6E8 FFFE0005FFF90009    D64    Wr       Data ----- ----   1111111
+ -329991 3---        157.5ns             -11.749s    Block       A32nMBLT         4062E6F0 0000000900070009    D64    Wr       Data ----- ----   1111111
+ -329990 3---        150.0ns             -11.749s    Block       A32nMBLT         4062E6F8 00010002FFF70000    D64    Wr       Data ----- ----   1111111
